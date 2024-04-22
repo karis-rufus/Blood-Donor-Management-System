@@ -55,7 +55,6 @@
 						<tr>
 							<th>Name</th>
 							<th>Username</th>
-							<th>Guardian's Name</th>
 							<th>Gender</th>
 							<th>D.O.B</th>
 							<th>Weight</th>
@@ -72,7 +71,7 @@
 						  <tr>
 						  <td>".$row['name']."</td>
 						  <td>".$row['username']."</td>
-						  <td>".$row['guardianname']."</td>
+						 
 						  <td>".$row['gender']."</td>
 						  <td>".$row['dob']."</td>
 						  <td>".$row['weight']."</td>

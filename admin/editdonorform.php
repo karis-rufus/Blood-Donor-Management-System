@@ -69,10 +69,7 @@ if(mysqli_num_rows($result) > 0) {
                                             <input class="form-control" name="name" type="text" value='<?php echo $row['name']; ?>' required>
                                             <p class="help-block">Example:Harry Den</p>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Enter Guardian's Name</label>
-                                            <input class="form-control" type="text" name="guardianname" value='<?php echo $row['guardianname']; ?>' required>
-                                        </div>
+                                       
                                         
                                         <div class="form-group">
                                             <label>Gender [ M/F ]</label>

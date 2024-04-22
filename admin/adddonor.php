@@ -59,10 +59,7 @@
                                             <label>Enter Full Name</label>
                                             <input class="form-control" name="name" type="text" placeholder="Example:Dan Wema" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Enter Guardian's Name</label>
-                                            <input class="form-control" placeholder="Guardian's Name" name="guardiansname" required>
-                                        </div>
+                                        
                                         
                                         <div class="form-group">
                                             <label>Gender [ M/F ]</label>
@@ -171,7 +168,6 @@
 
 if(isset($_POST['name'])){
 $name = $_POST["name"];    
-$guardiansname = $_POST["guardiansname"];
 $gender = $_POST["gender"];
 $dob = $_POST["dob"];
 $weight = $_POST["weight"];
@@ -183,7 +179,7 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 //code after connection is successfull
-$qry = "insert into donor(name,guardianname,gender,dob,weight,bloodgroup,email,address,contact,username,password) values ('$name','$guardiansname','$gender','$dob','$weight','$bloodgroup','$email','$address','$contact', '$username', '$password')";
+$qry = "insert into donor(name,gender,dob,weight,bloodgroup,email,address,contact,username,password) values ('$name','$gender','$dob','$weight','$bloodgroup','$email','$address','$contact', '$username', '$password')";
 $result = mysqli_query($conn,$qry); //query executes
 
 if(!$result){

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +10,11 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-	
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   <?php include("../includes/donornav.php")    ?>
+
+    
 	<style>
         /* Optional: CSS for styling the table */
         table {
@@ -25,26 +29,19 @@
         th {
             background-color: #f2f2f2;
         }
-		.page-header{
+        .page-header{
          margin-top: 30px;   
         }
-		body {
-        background-image: url('admin/img/campagin.jpg');
-        background-size: cover; /* Adjust as needed */
-        background-repeat: no-repeat; /* Optional: Prevents image from repeating */
-      }
     </style>
 </head>
 <body>
-    <?php include("header.html"); ?>
-<body>
+    
 <div id="wrapper">
-
 <div id="page-wrapper">
 <div class="container-fluid">
 <div class="row">
 <div class=".col-lg-12">
-               <h1 class="page-header">Campaign Details</h1>
+               <h1 class="page-header">Blood Collection</h1>
                 </div>
   </div>  
 
@@ -52,67 +49,68 @@
                         <div class=".col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Total Records of available campaign
+                                    Total Records of available bloods
                                 </div>
 								
 								 <div class="panel-body">
                                     <div class="table-responsive">
 									<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 									
-									<?php
-
-						include("database.php");
-
-						$query="select * from campagindb";
-						$result=mysqli_query($conn,$query);
-
-
-						echo"
-						<thead>
-												
-						<tr>
-						<th>Campaign Name</th>
-						<th>Organizer Name</th>
-						<th>Phone Number</th>
-						<th>Date of campaign</th>
-						<th>Description</th>
-					</tr>
-						</thead>";
-
-						while($row=mysqli_fetch_array($result)){
-						  echo"<tbody>
-						  <tr>
-						  <td>".$row['cname']."</td>
-						  <td>".$row['oname']."</td>
-						  <td>".$row['phn']."</td>
-						  <td>".$row['cdate']."</td>
-						  <td>".$row['descp']."</td>
-
-						</tr>
-						</tbody>";
-						}
-
-						?>
-						</table>
-									
-				</div>
-				</div>		
-		</div>
-		</div>	
-		</div>	
-		</div>
-		</div>
-</div>
 </body>
 </html>
 
+<?php
+
+include("database.php");
+
+$query="select * from blood";
+$result=mysqli_query($conn,$query);
 
 
+echo"
+<thead>
+<tr>
+    <th>Blood Group</th>
+    <th>Full Name</th>
+    <th>Gender</th>
+    <th>D.O.B</th>
+    <th>Weight</th>
+    <th>Address</th>
+    <th>Contact</th>
+    <th>Blood Quantity</th>
+    <th>Collection Date</th>
+</tr>
+</thead>";
 
+while($row=mysqli_fetch_array($result)){
+  echo"<tbody>
+  <tr class='gradeA'>
+  <td>".$row['bloodgroup']."</td>
+  <td>".$row['name']."</td>
+  <td>".$row['gender']."</td>
+  <td>".$row['dob']."</td>
+  <td>".$row['weight']."</td>
+  <td>".$row['address']."</td>
+  <td>".$row['contact']."</td>
+  <td>".$row['bloodqty']."</td>
+  <td>".$row['collection']."</td>
 
+</tr>
+<tbody>
+";
+}
 
-
-
+?>
+</table>
+            
+</div>
+</div>		
+</div>
+</div>	
+</div>	
+</div>
+</div>
+</div>
 
 
 
@@ -142,4 +140,5 @@ footer p {
 }
 	</style>
 
-<?php   include("footer.php");  ?>
+
+<?php   include("footer.php") ;    ?>

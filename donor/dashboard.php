@@ -9,28 +9,32 @@
     <meta name="author" content="">
 
     <title>BDAS</title>
-
+ 
+   
+      <?php require_once('database.php'); ?>
+<link rel="stylesheet" href="../includes/styles.css">
   
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"href="../vendor/bootstrap/css/bootstrap.min.css" >
 
 
-    <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link rel="stylesheet"href="../vendor/metisMenu/metisMenu.min.css">
 
 
-    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
 
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
-    <link rel="stylesheet" href="icofont/icofont.min.css">
-    <style>
+    <link rel="stylesheet" href="../icofont/icofont.min.css">
+    
+    <style> 
        
         body {
             font-family: Arial, sans-serif;
-            background-image: url('admin/img/page.jpg'); 
+            background-image: url('../admin/img/gro.jpg'); 
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -75,22 +79,24 @@
 
 <body >
     
-<?php include("header.html")    ?>
 
 
-    <div id="wrapper
+
+    <div id="wrapper">
+    <?php include("../includes/donornav.php") 
+   ?>
         <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Donor's Dashboard
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
+        <div class="row">
+    <div class="col-lg-12 text-center">
+        <h1 class="page-header">Donor's Dashboard</h1>
+    </div>
+</div>
+
             <!-- /.row -->
             <div class="row">
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -144,7 +150,7 @@
                 </div>
 				
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -159,7 +165,7 @@
                         </div>
                         <a href="annoucements.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Announcement Details</span>
+                                <span class="pull-left">View Blood Requests Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -167,7 +173,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -191,7 +197,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -214,9 +220,7 @@
                </div>
            </div>
           
-               <div class="panel panel-green">
-                   <div class="panel-heading">
-                       <div class="collum">
+              
           
 	</div>
 </div>
@@ -243,8 +247,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+   
 
-</body><br>
+
+<br>
 <br>
 <br>
 <br><br>
@@ -273,5 +279,5 @@ footer p {
     line-height: 100%;
 }
 	</style>
-
-</html>
+ </body>
+    </html>

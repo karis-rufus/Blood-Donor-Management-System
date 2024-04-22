@@ -1,4 +1,35 @@
+
 <!-- Navigation -->
+<style>
+    /* Set a fixed height for the navbar */
+    .navbar {
+        min-height: 50px; /* Adjust as needed */
+    }
+
+    /* Set a fixed height for the sidebar */
+    .navbar-default.sidebar {
+        height: 100%;
+        width: 250px; /* Adjust width as needed */
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        padding-top: 50px; /* Adjust based on navbar height */
+        overflow-y: auto;
+        background-color: cyan; /* Adjust background color as needed */
+    }
+
+    /* Adjust padding for the sidebar */
+    .sidebar-nav {
+        padding: 20px; /* Adjust as needed */
+    }
+
+    /* Ensure main content doesn't overlap with the sidebar */
+    #page-wrapper {
+        margin-left: 250px; /* Same as sidebar width */
+        padding: 20px; /* Adjust as needed */
+    }
+</style>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -7,7 +38,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"><i class="icofont-blood-drop"></i>Blood Donor alert System</a>
+               
             </div>
             <!-- /.navbar-header -->
 
@@ -21,7 +52,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <!-- <li class="divider"></li> -->
-                        <li><a href="index.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../index.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -115,6 +146,23 @@
                                     </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#"> Blood bank Location <i class='bx bxs-location-plus'> </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="newbloodbank.php">New Bank</a>
+                                </li>
+                                <li>
+                                        <a href="viewbloodbank.php">View Banks</a>
+                                    </li>
+                                    <li>
+                                        <a href="editbankform.php">Update Bank</a>
+                                    </li>
+                                    <li>
+                                        <a href="deletebank.php">Delete Bank</a>
+                                    </li>
+                            </ul>
+                        </li>
             
                         
                        
@@ -125,3 +173,17 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+        <script>
+    // Get the search input field
+    var searchInput = document.querySelector('.sidebar-search input[type="text"]');
+
+    // Add event listener for input focus
+    searchInput.addEventListener('focus', function() {
+        this.parentNode.parentNode.classList.add('active-search');
+    });
+
+    // Add event listener for input blur
+    searchInput.addEventListener('blur', function() {
+        this.parentNode.parentNode.classList.remove('active-search');
+    });
+</script>

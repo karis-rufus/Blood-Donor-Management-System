@@ -9,7 +9,9 @@ $result= mysqli_query($conn,$qry);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include 'includes/nav.php'?>
+
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,20 +20,32 @@ $result= mysqli_query($conn,$qry);
 
     <title>BDAS</title>
 
-    <!-- Bootstrap Core CSS -->
+    <!-- Bootstrap Core CSS --> <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+<!-- MetisMenu CSS -->
+<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+<!-- Morris Charts CSS -->
+<link href="../vendor/morrisjs/morris.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- Custom Fonts -->
+<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="../icofont/icofont.min.css">
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <link rel="stylesheet" href="../icofont/icofont.min.css">
@@ -46,7 +60,7 @@ $result= mysqli_query($conn,$qry);
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	
-	
+	<?php include("includes/nav.php"); ?>
     <style>
                        body {
             font-family: Arial, sans-serif;
@@ -56,9 +70,32 @@ $result= mysqli_query($conn,$qry);
             padding: 0;
         }
                     </style>
+                    	<script type="text/javascript">  
+           google.charts.load('current', {'packages':['corechart']});  
+           google.charts.setOnLoadCallback(drawChart);  
+           function drawChart()  
+           {  
+                var data = google.visualization.arrayToDataTable([  
+                          ['Gender', 'Number'],  
+                          <?php  
+                          while($row = mysqli_fetch_array($result))  
+                          {  
+                               echo "['".$row["bloodgroup"]."', ".$row["number"]."],";  
+                          }  
+                          ?>  
+                     ]);  
+                var options = {  
+                      title: 'Total Available Blood According to Blood Groups',  
+                      is3D:true,  
+                      pieHole: 0.0 
+                     };  
+                var chart = new google.visualization.PieChart(document.getElementById('piechart'));  
+                chart.draw(data, options);  
+           }  
+           </script
 </head>
 
-<body>
+<body >
 
 
     <div id="wrapper">
@@ -68,6 +105,7 @@ $result= mysqli_query($conn,$qry);
             <div class="row">
                 <div class=".col-lg-12">
                     <h1 class="page-header">Admin Dashboard</h1>
+                    <a href="../index.php">1</a>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -101,7 +139,7 @@ $result= mysqli_query($conn,$qry);
 </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -127,7 +165,7 @@ $result= mysqli_query($conn,$qry);
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -136,7 +174,7 @@ $result= mysqli_query($conn,$qry);
                                 <div class="col-xs-9 text-right">
                                 <?php include 'counter/dashannouncecount.php';?>
                                     <div class="huge"> </div>
-                                    <div>Announcement</div>
+                                    <div>Blood Requests</div>
                                 </div>
                             </div>
                         </div>
@@ -150,21 +188,21 @@ $result= mysqli_query($conn,$qry);
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
                                 <i class="icofont-blood-drop icofont-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Donate</div>
-                                    <div>Blood</div>
+                                    <div class="huge">Add</div>
+                                    <div>Donor</div>
                                 </div>
                             </div>
                         </div>
                         <a href="addblood.php">
                             <div class="panel-footer">
-                                <span class="pull-left">Donate Blood Now!</span>
+                                <span class="pull-left">Add Blood Now!</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -209,20 +247,21 @@ $result= mysqli_query($conn,$qry);
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="vendor/raphael/raphael.min.js"></script>
-    <script src="vendor/morrisjs/morris.min.js"></script>
-    <script src="data/morris-data.js"></script>
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="dist/js/sb-admin-2.js"></script>
-
+    <script src="../dist/js/sb-admin-2.js"></script>
 </body>
 
 <footer>

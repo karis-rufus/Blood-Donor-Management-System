@@ -1,77 +1,56 @@
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">a</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.php"><i class="icofont-blood-drop"></i>Blood Donor Management System</a>
-            </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-               
-             
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <!-- <li class="divider"></li> -->
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-               
-                <!-- /.dropdown -->
-            </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<?php require_once('database.php');  ?>
+</head>
+<body>
+  
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+<i class='bx bx-menu'></i>
+</button><h1 class="page-header text-center" id="offcanvasSecondaryNavbarLabel" ><i class="icofont-blood-drop"></i>Blood Donor
+            Management System</h1>
             
-            <!-- /.navbar-top-links -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+  <h5 class="offcanvas-title" id="offcanvasSecondaryNavbarLabel"><i class="icofont-blood-drop"></i>Blood Donor
+            Management
+            System</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    
+  </div>
+  
+  <div class="offcanvas-body"
+     style="background-color:lavender;  ">
+     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+     <!-- Content here -->
+  
+       
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
 
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="dashboard.php"><i class="fa fa-dashboard fa-fw"></i> Donor's Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="available.php"><i class="fa fa-heartbeat"></i>  View Blood Collections </a>
-                      
-                            <!-- /.nav-second-level -->
-                        </li>
-            
-                        
-                        <li>
-                            <a href="annoucement.php"><i class="fa fa-bullhorn"></i> View Announcements </a>
-                     
-                        </li>
 
-                        <li>
-                            <a href="campagins.php"><i class="fa fa-flag"></i> View Campaigns </a>
-                           
-                        </li>
-            
-                        
-                       
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
+            <li><a href="dashboard.php" style="margin:20px"><i class="fa fa-dashboard fa-fw"></i> DASHBOARD</a></li>
+            <li><a href=annoucements.php style="margin:20px;"><i class="fa fa-bullhorn"></i> BLOOD REQUESTS</a></li>
+            <li><a href=available.php style="margin:20px;"><i class="fa fa-heartbeat"></i> AVAILABLE_BLOOD</a></li>
+            <li><a href=campagins.php style="margin:20px;"><i class="fa fa-flag"></i> CAMPAGINS</a></li>
+
+            <li><a href=donate.php style="margin:20px;"><i class="fa fa-heartbeat"></i> DONATE_BLOOD</a></li>
+            <li><a href=location.php style="margin:20px;"><i class='bx bxs-location-plus'></i> BANK_lOCATIONS</a></li>
+
+          
+          <ul>
+            <!-- <li class="divider"></li> -->
+            <li><a href="../index.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          </ul>
+</ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
