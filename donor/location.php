@@ -29,7 +29,7 @@
 		 <div class="formstyle" style="padding:70px;border: 1px solid lightgrey;margin-right: 293px;margin-bottom: 30px;background-color:#f3f3f8;color:#141313;width: 530px;margin-left: 400px;">
 					<form action="bloodbank.php" method="post" class="form-group">
 						<h3>Select your location to view nearby blood bank</h3>
-						<h3>Use Google Map</h3><a href="gmap.php"><i class='bx bxs-map'></i></a>
+						<h3>Use Google Map <a href="gmap.php"><i class='bx bxs-map'></i></a></h3>
 						<br><br><br><br><br><br>
 
 					<label>
@@ -42,6 +42,7 @@
 												<option>Mamba</option>
                                                 <option>Rongai</option>
 												<option>Uptown</option>
+											
 											</select>
 
 					</label>
